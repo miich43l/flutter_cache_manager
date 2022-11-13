@@ -118,13 +118,13 @@ class WebHelper {
       CacheObject cacheObject, FileServiceResponse response) async* {
     final hasNewFile = statusCodesNewFile.contains(response.statusCode);
     final keepOldFile = statusCodesFileNotChanged.contains(response.statusCode);
-    if (!hasNewFile && !keepOldFile) {
-      throw HttpExceptionWithStatus(
-        response.statusCode,
-        'Invalid statusCode: ${response.statusCode}',
-        uri: Uri.parse(cacheObject.url),
-      );
-    }
+    // if (!hasNewFile && !keepOldFile) {
+    //   throw HttpExceptionWithStatus(
+    //     response.statusCode,
+    //     'Invalid statusCode: ${response.statusCode}',
+    //     uri: Uri.parse(cacheObject.url),
+    //   );
+    // }
 
     final oldCacheObject = cacheObject;
     var newCacheObject = _setDataFromHeaders(cacheObject, response);
